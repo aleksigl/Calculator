@@ -3,6 +3,22 @@ logging.basicConfig(level=logging.DEBUG, format='%(message)s')
 
 print("Welcome to the basic calculator.")
 def number_validation():
+    """
+    Prompts the user to choose a mathematical operation and provides validation for the operation and numbers.
+    
+    This function ensures the user inputs a valid operation number (1 to 4), and depending on the operation,
+    it validates the input for numbers (either two numbers for subtraction/division or multiple numbers for addition/multiplication).
+    
+    It loops until valid inputs are provided.
+    
+    Return:
+        tuple: A tuple containing the selected operation number (int) and a list of numbers (list of floats).
+        The operation number corresponds to one of the following:
+        - 1: Addition
+        - 2: Subtraction
+        - 3: Multiplication
+        - 4: Division
+    """
     try:    
         calculation_type = int(input("Choose an operation using the corresponding number: 1 Addition, 2 Subtraction, 3 Multiplication, 4 Division: "))
         if calculation_type not in [1,2,3,4]:
@@ -40,6 +56,17 @@ def number_validation():
     
 
 def calculator():
+    """
+    Performs the selected mathematical operation on a list of numbers input by the user.
+    
+    This function calls the `number_validation()` function to get the operation type and list of numbers.
+    Based on the operation type, it performs the corresponding calculation (addition, subtraction, multiplication, or division).
+    The result of the calculation is then printed.
+    
+    Return: 
+    It prints the result of the calculation.
+    """
+
     calculation_type, numbers = number_validation()
     result = None
     if calculation_type == 1:
